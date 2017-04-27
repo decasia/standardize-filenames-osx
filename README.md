@@ -17,9 +17,11 @@ author-lastname some fancy article title.pdf
 
 It keeps things uniform and easily readable if everything is named the same way. I've settled on all-lowercase, lastname-plus-short-article-title format. This is of course arbitrary; what's important to me is to have a system, not so much the specific criteria adopted.
 
-# An aesthetic exception
+# Aesthetic details
 
 I do have one exception to the all-lowercase rule: if a word is an acronym, I prefer for it to remain all uppercase. Acronyms can also contain digits (this sometimes includes abbreviations: I often use "19C" as an abbreviation for "19th century"). So the script has to be just slightly smarter than "lowercase everything" in order to handle the acronym case.
+
+I also convert all underscores to spaces. (I thought about doing the same with hyphens, but there are too many hyphens in people's names, etc.)
 
 # Installation:
 
