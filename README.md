@@ -23,7 +23,7 @@ I do have one exception to the all-lowercase rule: if a word is an acronym, I pr
 
 I also convert all underscores to spaces. (I thought about doing the same with hyphens, but there are too many hyphens in people's names, etc.)
 
-# Installation:
+# Installation
 
 The ruby script would work on any system with ruby installed. The launchd part requires OSX.
 
@@ -59,17 +59,17 @@ You can also just run
 $ standardize-filenames.rb /Users/youruser/Documents/articles
 ```
 
-and it will run interactively. Prefix with DRY_RUN=1 to test without actually renaming anything, like:
+and it will run interactively. Prefix with `DRY_RUN=1` to test without actually renaming anything, like:
 
 ```
 $ DRY_RUN=1 standardize-filenames.rb /Users/youruser/Documents/articles
 ```
 
-## Customization
+# Customization
 
 All the actual renaming logic happens in the `standardize_name` method. If you wanted some other naming system you could just customize that.
 
-# Sources:
+# Sources
 
 - http://stackoverflow.com/questions/1515730/is-there-a-command-like-watch-or-inotifywait-on-the-mac
 
