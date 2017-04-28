@@ -36,7 +36,6 @@ The ruby script would work on any system with ruby installed. The launchd part r
 
 Each time you add a new file to your target folder, the script will run and will standardize all filenames in the folder. (To be specific, it finds all files whose names contain uppercase characters. I don't know a way to only inspect recently changed files given the launchd WatchPaths UI, and we don't know for sure that recently added files will have recent modification times (so that wouldn't be a good criterion to watch with.)
 
-
 ## Usage notes
 
 You can monitor the results by opening `Console.app` and watching the log when you add a new file to your target directory. Each rename operation generates a log entry.
@@ -72,6 +71,14 @@ All the actual renaming logic happens in the `standardize_name` method. If you w
 # Sources
 
 - http://stackoverflow.com/questions/1515730/is-there-a-command-like-watch-or-inotifywait-on-the-mac
+
+# Testing
+
+I don't have an integration test, but there are a few unit tests of the `standardize_name` method that I wrote to help track down an issue with apostrophes in filenames. Turns out the bug was related to non-escaped output in backticks (in non-interactive mode), and not to the standardize_name method, but anyway, to run the unit tests:
+
+```
+ruby test.rb
+```
 
 # License
 
