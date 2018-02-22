@@ -21,7 +21,11 @@ expected_transforms = [
   # handles French accents
   ['Author Quelques Pensées.pdf', 'author quelques pensées.pdf'],
   # handles commas
-  ['Author What\'s This.pdf', 'author what\'s this.pdf']
+  ['Author What\'s This.pdf', 'author what\'s this.pdf'],
+  # consolidates multiple spaces
+  ['Author  Lots  of Space.pdf', 'author lots of space.pdf'],
+  # removes trailing space(s) before file extension
+  ['Author Some Article Name  .pdf', 'author some article name.pdf']
 ]
 
 s = StandardizeFilenames.new

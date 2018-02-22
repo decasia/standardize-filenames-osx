@@ -40,24 +40,25 @@ class StandardizeFilenames
   end
 
   def standardize_name(filename)
-    filename = filename.gsub('_', ' ') # remove any underscores
+    filename = filename.gsub(/[_ ]+/, ' ') # remove underscores and multiple spaces
+    filename = filename.gsub(/ +\./, '.') # remove space(s) before the file extension
     chars = filename.chars
     chars.each_with_index.map { |c, i|
-      downcase = false
-      if uppercase?(c)
+      should_downcase = false
+      if is_uppercase?(c) # if this character is uppercase compare it to the subsequent and previous characters
         subsequent = chars[i+1]
         prev = (i != 0) ? chars[i-1] : nil
 
-        unless upper_or_digit?(prev) || upper_or_digit?(subsequent)
-          downcase = true
+        unless upper_or_digit?(prev) || upper_or_digit?(subsequent) # leave all-upper strings alone
+          should_downcase = true
         end
       end
-      downcase ? c.downcase : c
+      should_downcase ? c.downcase : c
     }.join
   end
 
   # string helper methods
-  def uppercase?(s)
+  def is_uppercase?(s)
     s =~ /[A-Z]/
   end
 
